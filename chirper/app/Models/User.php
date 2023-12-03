@@ -8,9 +8,23 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+//Others
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+
+    // Chirps
+    public function chirps(): HasMany
+    {
+        return $this->hasMany(Chirp::class);
+    }
+
+
+
+    // Base
 
     /**
      * The attributes that are mass assignable.
