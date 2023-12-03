@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 // Others
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Events\ChirpCreated;
 
 class Chirp extends Model
 {
@@ -16,6 +17,11 @@ class Chirp extends Model
         'message',
     ];
 
+    protected $dispatchesEvents = [
+        'created' => ChirpCreated::class,
+    ];
+
+    
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
