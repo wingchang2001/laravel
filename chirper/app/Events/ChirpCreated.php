@@ -12,6 +12,7 @@ use Illuminate\Queue\SerializesModels;
 
 //Others
 use App\Models\Chirp;
+use Illuminate\Support\Facades\Log;
 
 class ChirpCreated
 {
@@ -22,7 +23,7 @@ class ChirpCreated
      */
     public function __construct(public Chirp $chirp)
     {
-        //
+        Log::info('Trace: ChirpCreated');
     }
 
     /**

@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 //Others
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Log;
 
 class ChirpController extends Controller
 {
@@ -43,6 +44,7 @@ class ChirpController extends Controller
  
         $request->user()->chirps()->create($validated);
  
+        Log::info('Trace: ChirpController->store', $validated);
         return redirect(route('chirps.index'));
     }
 

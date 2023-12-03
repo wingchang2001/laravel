@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notification;
 // Others
 use App\Models\Chirp;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Log;
 
 class NewChirp extends Notification
 {
@@ -22,7 +22,7 @@ class NewChirp extends Notification
      */
     public function __construct(public Chirp $chirp)
     {
-        //
+        Log::info('Trace: Notificaiton-New Chrip');
     }
 
     /**
@@ -40,6 +40,7 @@ class NewChirp extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        Log::info('Trace: Notificaiton-toMail');
         return (new MailMessage)
                     ->subject("New Chirp from {$this->chirp->user->name}")
                     ->greeting("New Chirp from {$this->chirp->user->name}")
