@@ -406,209 +406,164 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">Inventory</h4>
+              <h4 class="fw-bold py-3 mb-4">Device Information</h4>
+              <a href="{{ url('devices') }}" class="btn btn-secondary">Back</a>
+              <a href="{{ route('devices.edit', $device->id) }}" class="btn btn-primary">Edit</a>
               <!-- XXX -->
               <!-- /XXX -->
-              
-              <!-- Basic Bootstrap Table -->
-              <div class="card">
-                <div>
-                <h5 class="card-header">Device Table</h5>              
-                <a href="{{ url('addDevice') }}" class="btn btn-primary position-absolute top-0 end-0 mt-2 mr-50">Add Device</a>
+
+              <!-- Add Device -->
+              <form class="w-px-500 p-3 p-md-3" action="{{ route('devices.store') }}" method="post" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Registry ID</label>
+                    <div class="col-sm-9">
+                    <input type="text" id="registry_id" name="device_name" value="{{ $device->registry_id }}" readonly class="form-control">
+                    </div>
+                </div> 
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Registry Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="registry_name" name="registry_name" value="{{ $device->registry_name }}" readonly class="form-control">
+                    </div>
                 </div>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Country</th>
-                        <th>Fuel Type</th>
-                        <th>Name</th>
-                        <th>Registry ID</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> Singapore</td>
-                        <td>Solar</td>
-                        <td>0.225 MW Jaya Krishna wind Green Farm project 02</td>
-                        <td>0.22WIND002</td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-2"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong></td>
-                        <td>Barry Hunter</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="admin/assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="admin/assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="admin/assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-success me-1">Completed</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-2"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td><i class="fab fa-vuejs fa-lg text-success me-3"></i> <strong>VueJs Project</strong></td>
-                        <td>Trevor Baker</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="admin/assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="admin/assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="admin/assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-info me-1">Scheduled</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-2"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <i class="fab fa-bootstrap fa-lg text-primary me-3"></i> <strong>Bootstrap Project</strong>
-                        </td>
-                        <td>Jerry Milton</td>
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Lilian Fuller"
-                            >
-                              <img src="admin/assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Sophia Wilkerson"
-                            >
-                              <img src="admin/assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Christina Parker"
-                            >
-                              <img src="admin/assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                          </ul>
-                        </td>
-                        <td><span class="badge bg-label-warning me-1">Pending</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-2"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-2"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Capacity (MW)</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="capacity_mw" name="capacity_mw" value="{{ $device->capacity_mw }}" readonly class="form-control">
+                    </div>
                 </div>
-              </div>
-              <!--/ Basic Bootstrap Table -->
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Fuel Type</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="fuel_type" name="fuel_type" value="{{ $device->fuel_type }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Country</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="country" name="country" value="{{ $device->country }}" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Province</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="province" name="province" value="{{ $device->province }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Registry</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="registry" name="registry" value="{{ $device->registry }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Connected to Grid</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="connected_to_grid" name="connected_to_grid" value="{{ $device->connected_to_grid ? 'Yes' : 'No' }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Feed In Tariff</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="feed_in_tariff" name="feed_in_tariff" value="{{ $device->feed_in_tariff ? 'Yes' : 'No' }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Percentage Renewable</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="percentage_renewable" name="percentage_renewable" value="{{ $device->percentage_renewable }}" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Percentage Renewable</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="percentage_renewable" name="percentage_renewable" value="{{ $device->percentage_renewable }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Labelling Schemes</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="labelling_schemes" name="labelling_schemes" value="{{ $device->labelling_schemes }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Latitude</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="latitude" name="latitude" value="{{ $device->latitude }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Longitude</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="longitude" name="longitude" value="{{ $device->longitude }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Registration Date</label>
+                    <div class="col-sm-9">
+                        <input type="datetime" id="registration_date" name="registration_date" value="{{ $device->registration_date }}" readonly class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Commission Date</label>
+                    <div class="col-sm-9">
+                        <input type="datetime" id="commission_date" name="commission_date" value="{{ $device->commission_date }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Local Address</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="address_local" name="address_local" value="{{ $device->address_local }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">English Address</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="address_english" name="address_english" value="{{ $device->address_english }}" readonly class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-sm-3 col-form-label">Device Type</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="device_type" name="device_type" value="{{ $device->device_type }}" readonly class="form-control">
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </form>              
+              <!-- /Add Device -->
 
               <hr class="my-5" />
 

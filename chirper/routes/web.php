@@ -3,9 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-//Chirp
+//Controllers
 use App\Http\Controllers\ChirpController;
-
+use App\Http\Controllers\DeviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,11 @@ use App\Http\Controllers\ChirpController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/addDevice', function () {
+    return view('devices.create');
 });
 
 Route::get('/dashboard', function () {
@@ -44,5 +49,8 @@ Route::resource('chirps', ChirpController::class)
     ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
+Route::resources([
+    'devices' => DeviceController::class,
+]);
 
 require __DIR__.'/auth.php';
