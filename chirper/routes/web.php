@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 //Controllers
 use App\Http\Controllers\ChirpController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\RECController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::resource('chirps', ChirpController::class)
 
 Route::resources([
     'devices' => DeviceController::class,
+    'recs' => RECController::class,
 ]);
 
 require __DIR__.'/auth.php';

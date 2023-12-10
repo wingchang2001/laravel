@@ -28,5 +28,10 @@ class Device extends Model
         'address_local',
         'address_english',
         'device_type',
-    ];    
+    ];   
+    
+    public function recs()
+    {
+        return $this->hasMany(REC::class);
+    }
 }
